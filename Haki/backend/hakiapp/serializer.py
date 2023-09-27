@@ -6,10 +6,6 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         model = ProductData
         fields = '__all__'
 
-class CartSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = cartData
-        fields = '__all__'
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = categoryData

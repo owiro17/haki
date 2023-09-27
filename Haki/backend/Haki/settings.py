@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.api
+import cloudinary.uploader
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'hakiapp',
     'rest_framework',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +135,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+
+#cloudinary setup
+
+cloudinary.config(
+    cloud_name="dx4ib5sqt",
+    api_key="857149214851748",
+    api_secret="e9_X_PG5fOFP3cr0xqGmSIvt8Vs",
+)

@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 # Create your models here.
 class categoryData(models.Model):
     category_id = models.AutoField(primary_key=True)
@@ -13,7 +13,7 @@ class ProductData(models.Model):
     price = models.IntegerField()
     productQuantity = models.IntegerField()
     category = models.ForeignKey(categoryData,default="0", on_delete=models.CASCADE)
-    
+    productImage = CloudinaryField("image")
     # productImage = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=None)
 
     def __str__(self):
@@ -21,8 +21,3 @@ class ProductData(models.Model):
 
 
 
-class cartData(models.Model):
-    product = models.ForeignKey(ProductData, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    def __str__(self):
-        return ("cart for" + self.product)
